@@ -1,9 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
 
+//server created with mirage js
+import "./server"
 /**
  * Challenge:
  * Bootstrap the VanLife project by creating the first 2 routes:

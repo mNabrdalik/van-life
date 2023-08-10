@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
+import Vans from './pages/Vans'
 
 //server created with mirage js
 import "./server"
@@ -29,13 +30,14 @@ function App() {
         <Link to="/" className='logo'>#VANLIFE</Link>
         <nav>
           <Link to="/about" className='nav-link'>About</Link>
-          <Link to="/" className='nav-link'>Vans</Link>
+          <Link to="/vans" className='nav-link'>Vans</Link>
         </nav>
       </header>
 
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/about' element={<About/>}></Route>
+        <Route path='/vans' element={<Vans/>}></Route>
       </Routes>
 
       <footer>

@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+header {
+    padding: 36px 5%;
+    width: 100%;
+    background-color: #FFF7ED;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+nav{
+    display: flex;
+    gap: 1em;
+}
+
+
+nav a {
+    font-weight: 600;
+    transition: all .4s ease-in-out;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+    border-color: black;
+}
+
+
+
+.home {
+    background-image: url("./images/image 53.png");
+    background-size: cover;
+    background-position: center;
+    padding: 5%;
+    min-height: 85vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.home h1 {
+    font-weight: 800;
+    margin-bottom: 0.75em;
+    line-height: 150%;
+}
+
+.home p {
+    font-weight: 500;
+    margin-bottom: 3em;
+    line-height: 150%;
+}
+
+.home .btn {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    min-width: 240px;
+}
+
+.btn {
+    border-radius: 5px;
+    font-weight: 600;
+    padding: 1em 2em; 
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    width: fit-content;
+}
+
+.btn-primary {
+    background-color: #FF8C38;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #252525;
+}
+
+.btn-black {
+    background-color: #161616;
+    color: white;
+}
+
+.btn-black:hover {
+    background-color: white;
+    color: #161616;
+}
+
+.about {
+    background-color: #FFF7ED;
+}
+
+.about > img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.about-content {
+    padding: 5% 5% 15%;
+
+}
+
+.about-content h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+.about-content p {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 3em;
+    line-height: 150%;
+}
+
+.about-explore {
+    background-color: #FFCC8D;
+    border-radius: 5px;
+    padding: 5%;    
+}
+
+.about-explore h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+footer {
+    background-color: #252525;
+    display: flex;
+    justify-content: center;
+    color: #AAAAAA;
+    padding: 2em;
+    font-weight: 500;
+    font-size: 0.85rem;
+}

@@ -194,6 +194,8 @@ nav a:hover {
     background-color: #FFEAD0;
     color: #4D4D4D;
     transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    width: fit-content;
 }
 
 .van-type:hover {
@@ -231,6 +233,41 @@ nav a:hover {
     text-decoration: underline;
     background-color: transparent;
     color: #4D4D4D;
+}
+
+.van-detail-container {
+    padding: 5% 5% 10%;
+}
+
+.van-detail {
+    display: block;
+    margin: auto;
+}
+
+.back-btn span {
+    font-weight: 500;
+    text-decoration: underline;
+}   
+
+.back-btn img {
+    margin-right: 4px;
+}
+
+.van-img {
+    width: 100%;
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+.van-price span {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.van-detail button {
+    width: 100%;
+    border: none;
+    margin-top: 2em;
 }
 
 i[class*='van-type-'] {

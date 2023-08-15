@@ -3,33 +3,39 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
-import Vans from './pages/Vans'
-import VanDetail from './pages/VanDetail'
+import Vans from './pages/Vans/Vans'
+import VanDetail from './pages/Vans/VanDetail'
+import Dashboard from './pages/Host/Dashboard'
+import Income from './pages/Host/Income'
+import Reviews from './pages/Host/Reviews'
+import Layout from './components/Layout'
+import HostLayout from './components/HostLayout'
 
 //server created with mirage js
 import "./server"
 
+
+
 function App() {
   return (
     <BrowserRouter>
-      <header>
-        <Link to="/" className='logo'>#VANLIFE</Link>
-        <nav>
-          <Link to="/about" className='nav-link'>About</Link>
-          <Link to="/vans" className='nav-link'>Vans</Link>
-        </nav>
-      </header>
-
       <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/about' element={<About/>}></Route>
-        <Route path='/vans' element={<Vans/>}></Route>
-        <Route path='/vans/:id' element={<VanDetail/>}></Route>
+        <Route path='/' element={<Layout/>}>
+          <Route index element={<Home/>}/>
+          <Route path='about' element={<About/>}/>
+          <Route path='vans' element={<Vans/>}/>
+          <Route path='vans/:id' element={<VanDetail/>}/>
+          
+          <Route path='host' element={<HostLayout/>}> 
+            {/* index => content showed in /host. Index helps to avoid case lik host/host */}
+            <Route index element={<Dashboard/>}/>
+            {/* path: /host/income */}
+            <Route path='income' element={<Income/>}/> 
+            <Route path='reviews' element={<Reviews/>}/>
+          </Route>
+     
+        </Route>
       </Routes>
-
-      <footer>
-        <p>Ⓒ 2022 #VANLIFE</p>
-      </footer>
     </BrowserRouter>
 
   )

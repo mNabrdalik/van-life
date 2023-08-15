@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import arrowBack from "../images/ArrowBack.png"
+import arrowBack from "../../images/ArrowBack.png"
 
 export default function VanDetail() {
     //data from url -> :id

@@ -44,10 +44,12 @@ nav a {
     font-weight: 600;
     transition: all .4s ease-in-out;
     border-bottom: 2px solid transparent;
+    color: #4D4D4D;
 }
 
 nav a:hover {
     border-color: black;
+    color: black;
 }
 
 
@@ -272,6 +274,16 @@ nav a:hover {
 
 i[class*='van-type-'] {
     padding: 7px 14px;
+}
+
+.host-nav {
+    padding-left: 5%;
+    padding-bottom: 32px;
+}
+
+.active-link {
+    border-color: black;
+    color: black;
 }
 
 footer {

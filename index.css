@@ -52,7 +52,9 @@ nav a:hover {
     color: black;
 }
 
-
+main {
+    min-height: calc(100% - 195px);
+}
 
 .home {
     background-image: url("./images/image 53.png");
@@ -285,6 +287,35 @@ i[class*='van-type-'] {
     border-color: black;
     color: black;
 }
+.host-van-list-container {
+    padding: 0 5% 5%;
+}
+
+.hostVan-tile {
+    display: flex;
+    padding: 5%;
+    background-color: #fff;
+    border-radius: 5px;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.hostVan-info h3 {
+    margin-top: 0;
+    margin-bottom: .25em;
+}
+
+.hostVan-info p {
+    margin: 0;
+}
+
+.hostVan-tile img {
+    width: 20%;
+    height: 20%;
+    object-fit: cover;
+    margin-right: 5%;
+    border-radius: 5px;
+}
 
 footer {
     background-color: #252525;
@@ -294,4 +325,5 @@ footer {
     padding: 2em;
     font-weight: 500;
     font-size: 0.85rem;
+ 
 }

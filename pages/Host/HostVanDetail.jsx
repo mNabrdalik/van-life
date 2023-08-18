@@ -64,7 +64,7 @@ export default function HostVanDetails() {
 
                 </nav>   
                  {/* context => share values with child routes  */}
-                {/* <Outlet context={{currVan}}/>   */}
+                <Outlet context={{currVan}}/>  
             </div>
             
         </div>

@@ -1,10 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export default function Vans() {
 
-    //state for data from memes api
+    //searchParams => query to search/filter data, based on query(?) from URL 
+    const[searchParams, setSearchParams] = useSearchParams()
+
+    //state for data from server.js
     const[vans, setVans] = React.useState([]);
+
+    const typeFilter = searchParams.get('type')
+
+    console.log(typeFilter)
 
     //side effect - on first site render (empty array), save database from allVans state
     React.useEffect(() => {

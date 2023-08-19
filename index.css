@@ -407,6 +407,21 @@ i[class*='van-type-'] {
     font-weight: 500;
 }
 
+.van-list-filters {
+    align-items: center;
+}
+
+.van-list-filters button {
+    margin-right: 0;
+}
+
+.van-list-filters .clear-filters{
+    align-items: center;
+    border-color: black;
+    color: black;
+}
+
+
 footer {
     background-color: #252525;
     display: flex;

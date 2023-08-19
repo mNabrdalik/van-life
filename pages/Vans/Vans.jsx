@@ -11,8 +11,6 @@ export default function Vans() {
 
     const typeFilter = searchParams.get('type')
 
-    console.log(typeFilter)
-
     //side effect - on first site render (empty array), save database from allVans state
     React.useEffect(() => {
         fetch("/api/vans")
@@ -20,7 +18,10 @@ export default function Vans() {
             .then(data => setVans(data.vans))    
     },[])
 
-    const vanElements = vans.map(item => (
+    //check if was used search
+    const displayedVans = typeFilter ? vans.filter(item => item.type.toLowerCase() === typeFilter) :  vans;
+
+    const vanElements = displayedVans.map(item => (
         <Link key={item.id} to={`/vans/${item.id}`}>
             <div className="van-tile">
                 <img src={item.imageUrl} alt={item.name} />
@@ -37,6 +38,25 @@ export default function Vans() {
     return (
         <div className="van-list-container">
             <h1>Explore our van options</h1>
+            <nav className="van-list-filters"> 
+            
+                <button 
+                    onClick={() => {setSearchParams({type: "simple"})}}
+                    className={`van-type simple ${typeFilter === "simple" ? "selected" : null}`}>Simple</button>
+                <button 
+                    onClick={() => {setSearchParams({type: "luxury"})}}
+                    className={`van-type luxury ${typeFilter === "luxury" ? "selected" : null}`}>Luxury</button>
+                <button 
+                    onClick={() => {setSearchParams({type: "rugged"})}}
+                    className={`van-type rugged ${typeFilter === "rugged" ? "selected" : null}`}>Rugged</button>
+
+                {typeFilter ? (
+                    <button 
+                        onClick={() => {setSearchParams({})}}
+                        className="van-type clear-filters"
+                    >Clear filters</button> 
+                    ) : null}
+            </nav>
             <div className="van-list">
                 {vanElements}
             </div>

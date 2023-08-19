@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, NavLink } from "react-router-dom";
 
 export default function Vans() {
 
@@ -22,7 +22,7 @@ export default function Vans() {
     const displayedVans = typeFilter ? vans.filter(item => item.type.toLowerCase() === typeFilter) :  vans;
 
     const vanElements = displayedVans.map(item => (
-        <Link key={item.id} to={`/vans/${item.id}`}>
+        <NavLink key={item.id} to={`${item.id}`}>
             <div className="van-tile">
                 <img src={item.imageUrl} alt={item.name} />
                 <div className="van-info">
@@ -31,7 +31,7 @@ export default function Vans() {
                 </div>
                 <i className={`van-type ${item.type} selected`}>{item.type}</i>
             </div>
-        </Link>
+        </NavLink>
 
     ))
 
@@ -42,13 +42,24 @@ export default function Vans() {
             
                 <button 
                     onClick={() => {setSearchParams({type: "simple"})}}
-                    className={`van-type simple ${typeFilter === "simple" ? "selected" : null}`}>Simple</button>
+                    className={
+                        `van-type simple ${typeFilter === "simple" ? "selected" : null}`
+                    }
+                >Simple</button>
+
                 <button 
                     onClick={() => {setSearchParams({type: "luxury"})}}
-                    className={`van-type luxury ${typeFilter === "luxury" ? "selected" : null}`}>Luxury</button>
+                    className={
+                        `van-type luxury ${typeFilter === "luxury" ? "selected" : null}`
+                    }
+                >Luxury</button>
+
                 <button 
                     onClick={() => {setSearchParams({type: "rugged"})}}
-                    className={`van-type rugged ${typeFilter === "rugged" ? "selected" : null}`}>Rugged</button>
+                    className={
+                        `van-type rugged ${typeFilter === "rugged" ? "selected" : null}`
+                    }
+                >Rugged</button>
 
                 {typeFilter ? (
                     <button 

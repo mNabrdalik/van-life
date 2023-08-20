@@ -10,17 +10,51 @@ export default function Vans() {
     //state for data from server.js
     const[vans, setVans] = React.useState([]);
 
+    // state for loading data effect
+    const[loading, setLoading] = React.useState(false)
+
+    const[error, setError] = React.useState(null)
+
     const typeFilter = searchParams.get('type')
 
     //side effect - on first site render (empty array), save database from allVans state
     React.useEffect(() => {
         async function loadVans() {
-            const data = await getVans()
-            setVans(data)
+            setLoading(true) //this is turn on state with render loading info on screen
+            try {
+                const data = await getVans()
+                setVans(data)
+            } catch(err) {
+                console.log("Ooops, there was and error!")
+                console.log(err)
+
+                setError(err) //set data in error state
+            } finally {
+                setLoading(false) //this is turn off state with render loading info on screen
+            }
+          
         }
 
         loadVans()
     },[])
+
+    //render loading info on site
+    if (loading) {
+        return (
+            <div className="van-list-container">
+                <h1>Loading ...</h1>
+            </div>
+        )
+    }
+
+    //render error info on site
+    if (error) {
+        return (
+            <div className="van-list-container">
+                <h1>There was an error: {error.message}</h1>
+            </div>
+        )
+    }
 
     //check if was used search
     const displayedVans = typeFilter ? vans.filter(item => item.type.toLowerCase() === typeFilter) :  vans;

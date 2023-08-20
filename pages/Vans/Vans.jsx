@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useSearchParams, NavLink } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export default function Vans() {
 
@@ -22,7 +22,9 @@ export default function Vans() {
     const displayedVans = typeFilter ? vans.filter(item => item.type.toLowerCase() === typeFilter) :  vans;
 
     const vanElements = displayedVans.map(item => (
-        <NavLink key={item.id} to={`${item.id}`}>
+        // in "to", absolute path "/vans/${item.id}" was change to relative => item.id
+        //state is for remeber filters and send to VanDetail. Necessary in case when someone back grom VanDetail to Vans and shouldn't have cleared filters.
+        <Link key={item.id} to={item.id} state={{search: searchParams.toString(), type: item.type}}>
             <div className="van-tile">
                 <img src={item.imageUrl} alt={item.name} />
                 <div className="van-info">
@@ -31,7 +33,7 @@ export default function Vans() {
                 </div>
                 <i className={`van-type ${item.type} selected`}>{item.type}</i>
             </div>
-        </NavLink>
+        </Link>
 
     ))
 

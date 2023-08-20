@@ -421,6 +421,22 @@ i[class*='van-type-'] {
     color: black;
 }
 
+.notFound {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+
+.notFound h1 {
+    font-size: 3rem;
+}
+
+.notFound .btn {
+    margin-top: 1em;
+    width: 100%;
+}
 
 footer {
     background-color: #252525;

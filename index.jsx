@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
 import Vans from './pages/Vans/Vans'
+import Page404 from './pages/404'
 import VanDetail from './pages/Vans/VanDetail'
 import Dashboard from './pages/Host/Dashboard'
 import Income from './pages/Host/Income'
@@ -26,6 +27,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout/>}>
+
           <Route index element={<Home/>}/>
           <Route path='about' element={<About/>}/>
           <Route path='vans' element={<Vans/>}/>
@@ -45,6 +47,7 @@ function App() {
             </Route>
           </Route>
      
+          <Route path='*' element={<Page404/>}/>  {/*  404 page */}
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,6 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { 
+  Route, 
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements, 
+} from 'react-router-dom'
+
 import Home from './pages/Home'
 import About from './pages/About'
 import Vans from './pages/Vans/Vans'
@@ -20,38 +26,35 @@ import HostLayout from './components/HostLayout'
 //server created with mirage js
 import "./server"
 
+const myRouter = createBrowserRouter(createRoutesFromElements(
+  <Route path='/' element={<Layout/>}>
 
+    <Route index element={<Home/>}/>
+    <Route path='about' element={<About/>}/>
+    <Route path='vans' element={<Vans/>}/>
+    <Route path='vans/:id' element={<VanDetail/>}/>
+    
+    <Route path='host' element={<HostLayout/>}> 
+      {/* index => content showed in /host. Index helps to avoid case lik host/host */}
+      <Route index element={<Dashboard/>}/>
+      {/* path: /host/income */}
+      <Route path='income' element={<Income/>}/> 
+      <Route path='reviews' element={<Reviews/>}/>
+      <Route path='vans' element={<HostVans/>}/> 
+      <Route path='vans/:id' element={<HostVanDetail/>}> 
+        <Route index element={<HostVanInfo/>}/> 
+        <Route path='pricing' element={<HostVanPricing/>}/> 
+        <Route path='photos' element={<HostVanPhotos/>}/> 
+      </Route>
+    </Route>
+
+    <Route path='*' element={<Page404/>}/>  {/*  404 page */}
+  </Route>
+))
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Layout/>}>
-
-          <Route index element={<Home/>}/>
-          <Route path='about' element={<About/>}/>
-          <Route path='vans' element={<Vans/>}/>
-          <Route path='vans/:id' element={<VanDetail/>}/>
-          
-          <Route path='host' element={<HostLayout/>}> 
-            {/* index => content showed in /host. Index helps to avoid case lik host/host */}
-            <Route index element={<Dashboard/>}/>
-            {/* path: /host/income */}
-            <Route path='income' element={<Income/>}/> 
-            <Route path='reviews' element={<Reviews/>}/>
-            <Route path='vans' element={<HostVans/>}/> 
-            <Route path='vans/:id' element={<HostVanDetail/>}> 
-              <Route index element={<HostVanInfo/>}/> 
-              <Route path='pricing' element={<HostVanPricing/>}/> 
-              <Route path='photos' element={<HostVanPhotos/>}/> 
-            </Route>
-          </Route>
-     
-          <Route path='*' element={<Page404/>}/>  {/*  404 page */}
-        </Route>
-      </Routes>
-    </BrowserRouter>
-
+    <RouterProvider router={myRouter}/>
   )
 }
 

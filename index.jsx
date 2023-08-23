@@ -9,7 +9,7 @@ import {
 
 import Home from './pages/Home'
 import About from './pages/About'
-import Vans from './pages/Vans/Vans'
+import Vans, {loader as vansLoader} from './pages/Vans/Vans'
 import Page404 from './pages/404'
 import VanDetail from './pages/Vans/VanDetail'
 import Dashboard from './pages/Host/Dashboard'
@@ -26,12 +26,13 @@ import HostLayout from './components/HostLayout'
 //server created with mirage js
 import "./server"
 
+//This is the recommended router for all React Router web projects. It uses the DOM History API to update the URL and manage the history stack.
 const myRouter = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<Layout/>}>
 
     <Route index element={<Home/>}/>
     <Route path='about' element={<About/>}/>
-    <Route path='vans' element={<Vans/>}/>
+    <Route path='vans' element={<Vans/>} loader={vansLoader}/>
     <Route path='vans/:id' element={<VanDetail/>}/>
     
     <Route path='host' element={<HostLayout/>}> 

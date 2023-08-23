@@ -19,9 +19,11 @@ import HostVanDetail from './pages/Host/HostVanDetail'
 import HostVanInfo from './pages/Host/HostVanInfo'
 import HostVanPricing from './pages/Host/HostVanPricing'
 import HostVanPhotos from './pages/Host/HostVanPhotos'
+import Login from './pages/Login'
 import Reviews from './pages/Host/Reviews'
 import Layout from './components/Layout'
 import HostLayout from './components/HostLayout'
+import Error from './components/Error'
 
 //server created with mirage js
 import "./server"
@@ -32,7 +34,12 @@ const myRouter = createBrowserRouter(createRoutesFromElements(
 
     <Route index element={<Home/>}/>
     <Route path='about' element={<About/>}/>
-    <Route path='vans' element={<Vans/>} loader={vansLoader}/>
+    <Route 
+      path='vans' 
+      element={<Vans/>} 
+      errorElement={<Error/>}
+      loader={vansLoader}
+    />
     <Route path='vans/:id' element={<VanDetail/>}/>
     
     <Route path='host' element={<HostLayout/>}> 
@@ -49,6 +56,7 @@ const myRouter = createBrowserRouter(createRoutesFromElements(
       </Route>
     </Route>
 
+    <Route path='login' element={<Login/>}/>
     <Route path='*' element={<Page404/>}/>  {/*  404 page */}
   </Route>
 ))
